@@ -174,6 +174,7 @@ offset_left = 1019.0
 offset_top = 600.0
 offset_right = 1144.0
 offset_bottom = 641.0
+focus_mode = 0
 toggle_mode = true
 text = "Build"
 
