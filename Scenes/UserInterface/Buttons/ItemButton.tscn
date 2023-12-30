@@ -1,0 +1,50 @@
+[gd_scene load_steps=3 format=3 uid="uid://bdqo2vu5ffxbv"]
+
+[ext_resource type="Texture2D" uid="uid://cvy67u8ipfug2" path="res://Assets/UserInterface/ItemButtons/DoubleTurretButton.png" id="1_3dw1b"]
+[ext_resource type="Script" path="res://Scripts/BaseButton.gd" id="2_moayu"]
+
+[node name="ItemButton" type="TextureButton" node_paths=PackedStringArray("name_label", "price_label")]
+custom_minimum_size = Vector2(48, 48)
+offset_right = 48.0
+offset_bottom = 48.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("1_3dw1b")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("2_moayu")
+name_label = NodePath("ItemInfo/NameLabel")
+price_label = NodePath("ItemInfo/PriceLabel")
+
+[node name="ItemInfo" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -52.0
+offset_top = 4.0
+offset_right = 54.0
+offset_bottom = 76.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+alignment = 1
+
+[node name="NameLabel" type="Label" parent="ItemInfo"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "Item Name"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="PriceLabel" type="Label" parent="ItemInfo"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "$999"
+horizontal_alignment = 1
+vertical_alignment = 1

@@ -1,0 +1,27 @@
+[gd_scene load_steps=6 format=3 uid="uid://d3624rkpl17u0"]
+
+[ext_resource type="PackedScene" uid="uid://b5y177mviat22" path="res://Scenes/Units/UnitsBase.tscn" id="1_larht"]
+[ext_resource type="Script" path="res://Scripts/DoubleTurret.gd" id="2_thkuu"]
+[ext_resource type="Texture2D" uid="uid://bdd8x25daw57a" path="res://Assets/PlayerUnits/Turret/TurretBase.png" id="3_iuctm"]
+[ext_resource type="Texture2D" uid="uid://ddbqce70dnhxp" path="res://Assets/PlayerUnits/Turret/DoubleBarrel.png" id="4_kwlg0"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ksn0m"]
+radius = 400.0
+
+[node name="DoubleTurret" instance=ExtResource("1_larht")]
+script = ExtResource("2_thkuu")
+
+[node name="Sprite2D" parent="." index="0"]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("3_iuctm")
+
+[node name="CollisionShape2D" parent="." index="1"]
+shape = SubResource("CircleShape2D_ksn0m")
+
+[node name="Muzzle" type="Node2D" parent="." index="2"]
+scale = Vector2(0.25, 0.25)
+
+[node name="Muzzle" type="Sprite2D" parent="Muzzle" index="0"]
+rotation = 1.57079
+texture = ExtResource("4_kwlg0")
+offset = Vector2(0, -120)

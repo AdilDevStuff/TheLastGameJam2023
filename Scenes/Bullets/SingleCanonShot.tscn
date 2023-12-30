@@ -1,0 +1,19 @@
+[gd_scene load_steps=5 format=3 uid="uid://eli3glw6tkfy"]
+
+[ext_resource type="PackedScene" uid="uid://oyta1hp784o3" path="res://Scenes/Bullets/BulletBase.tscn" id="1_u31f7"]
+[ext_resource type="Script" path="res://Scripts/SingleBullet.gd" id="2_ooabr"]
+[ext_resource type="Texture2D" uid="uid://bf6a0anud3udn" path="res://icon.png" id="3_jf41n"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6wjtp"]
+size = Vector2(28, 28)
+
+[node name="SingleCanonShot" instance=ExtResource("1_u31f7")]
+script = ExtResource("2_ooabr")
+speed = 20.0
+
+[node name="Sprite2D" parent="." index="0"]
+scale = Vector2(0.21875, 0.21875)
+texture = ExtResource("3_jf41n")
+
+[node name="CollisionShape2D" parent="." index="1"]
+shape = SubResource("RectangleShape2D_6wjtp")
