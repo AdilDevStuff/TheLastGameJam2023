@@ -13,15 +13,21 @@ extends Area2D
 
 var can_shoot: bool = true
 
-func _process(_delta: float) -> void:
-	if is_ray_colliding():
-		shoot(raycast.global_transform)
-
-func shoot(bullet_spawn_position):
+func shoot_single_bullet(bullet_spawn_position):
 	if can_shoot:
 		var bullet_instance = bullet_scene.instantiate()
 		bullet_instance.global_transform = bullet_spawn_position
 		get_parent().add_child(bullet_instance)
+		can_shoot = false
+		await get_tree().create_timer(fire_rate).timeout
+		can_shoot = true
+
+func shoot_double_bullet(shooting_points: Array):
+	if can_shoot:
+		for shooting_point in shooting_points:
+			var bullet = bullet_scene.instantiate()
+			bullet.position = shooting_point.position
+			add_child(bullet)
 		can_shoot = false
 		await get_tree().create_timer(fire_rate).timeout
 		can_shoot = true

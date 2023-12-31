@@ -1,7 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://bdqo2vu5ffxbv"]
+[gd_scene load_steps=4 format=3 uid="uid://bdqo2vu5ffxbv"]
 
 [ext_resource type="Texture2D" uid="uid://cvy67u8ipfug2" path="res://Assets/UserInterface/ItemButtons/DoubleTurretButton.png" id="1_3dw1b"]
 [ext_resource type="Script" path="res://Scripts/BaseButton.gd" id="2_moayu"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tfkdk"]
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+anti_aliasing_size = 0.01
 
 [node name="ItemButton" type="TextureButton" node_paths=PackedStringArray("name_label", "price_label")]
 custom_minimum_size = Vector2(48, 48)
@@ -17,6 +24,25 @@ stretch_mode = 0
 script = ExtResource("2_moayu")
 name_label = NodePath("ItemInfo/NameLabel")
 price_label = NodePath("ItemInfo/PriceLabel")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 35.0
+offset_top = -9.0
+offset_right = 55.0
+offset_bottom = 11.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_tfkdk")
+
+[node name="ItemAmount" type="Label" parent="Panel"]
+offset_left = 7.0
+offset_top = 3.0
+offset_right = 13.0
+offset_bottom = 17.0
+theme_override_font_sizes/font_size = 10
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
 
 [node name="ItemInfo" type="VBoxContainer" parent="."]
 layout_mode = 1

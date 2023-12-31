@@ -6,8 +6,9 @@ extends Area2D
 @export var health: float
 
 func _process(delta: float) -> void:
-	print(health)
 	move(delta)
+	if health <= 0:
+		queue_free()
 
 func move(delta):
 	position.x -= move_speed * delta

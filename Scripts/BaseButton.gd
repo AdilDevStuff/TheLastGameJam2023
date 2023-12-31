@@ -13,6 +13,7 @@ extends TextureButton
 @onready var item_buttons: Array = get_tree().get_nodes_in_group("ItemButton")
 
 func _ready() -> void:
+	set_state_texture()
 	name_label.text = item_name
 	price_label.text = "$%d" % item_price
 	pivot_offset = size / 2

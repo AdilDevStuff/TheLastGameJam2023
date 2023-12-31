@@ -1,19 +1,21 @@
-[gd_scene load_steps=6 format=3 uid="uid://d3624rkpl17u0"]
+[gd_scene load_steps=7 format=3 uid="uid://d3624rkpl17u0"]
 
 [ext_resource type="PackedScene" uid="uid://b5y177mviat22" path="res://Scenes/Units/UnitsBase.tscn" id="1_larht"]
 [ext_resource type="Script" path="res://Scripts/DoubleTurret.gd" id="2_thkuu"]
 [ext_resource type="Texture2D" uid="uid://bdd8x25daw57a" path="res://Assets/PlayerUnits/Turret/TurretBase.png" id="3_iuctm"]
+[ext_resource type="PackedScene" uid="uid://eli3glw6tkfy" path="res://Scenes/Bullets/CanonShot.tscn" id="3_raeo0"]
 [ext_resource type="Texture2D" uid="uid://ddbqce70dnhxp" path="res://Assets/PlayerUnits/Turret/DoubleBarrel.png" id="4_kwlg0"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ksn0m"]
 radius = 32.3883
 
-[node name="DoubleTurret" instance=ExtResource("1_larht")]
+[node name="DoubleTurret" node_paths=PackedStringArray("spawn_points") instance=ExtResource("1_larht")]
 script = ExtResource("2_thkuu")
+spawn_points = NodePath("Barrel/SpawnPoints")
 health = 40.0
-damage = 20.0
 fire_rate = 1.0
 price = 40.0
+bullet_scene = ExtResource("3_raeo0")
 
 [node name="Sprite2D" parent="." index="0"]
 scale = Vector2(0.25, 0.25)
@@ -27,3 +29,11 @@ target_position = Vector2(1000, 0)
 
 [node name="MuzzleSprite" parent="Barrel" index="1"]
 texture = ExtResource("4_kwlg0")
+
+[node name="SpawnPoints" type="Node2D" parent="Barrel" index="2"]
+
+[node name="Position1" type="Marker2D" parent="Barrel/SpawnPoints" index="0"]
+position = Vector2(64, -7)
+
+[node name="Position2" type="Marker2D" parent="Barrel/SpawnPoints" index="1"]
+position = Vector2(64, 6)

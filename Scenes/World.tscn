@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scripts/BuildSystem.gd" id="1_r7wn2"]
 [ext_resource type="PackedScene" uid="uid://cc3ko47dckauj" path="res://Scenes/Units/SingleTurret.tscn" id="2_3a600"]
-[ext_resource type="PackedScene" uid="uid://d3624rkpl17u0" path="res://Scenes/Bullets/DoubleTurret.tscn" id="3_rwweq"]
+[ext_resource type="PackedScene" uid="uid://d3624rkpl17u0" path="res://Scenes/Units/DoubleTurret.tscn" id="3_rwweq"]
 [ext_resource type="Texture2D" uid="uid://bb0u48dvqv2ko" path="res://Assets/UserInterface/IndicatorIcons/SingleTurret.png" id="4_6c2k5"]
 [ext_resource type="Texture2D" uid="uid://bkih8bfbxril3" path="res://Assets/UserInterface/IndicatorIcons/DoubleTurret.png" id="5_rmsup"]
 [ext_resource type="Script" path="res://Scripts/GameUI.gd" id="6_105vj"]
@@ -165,9 +165,9 @@ anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = 660.0
-offset_right = 12672.0
-offset_bottom = 752.0
+offset_top = 12.0
+offset_right = 16128.0
+offset_bottom = 104.0
 grow_horizontal = 2
 grow_vertical = 0
 

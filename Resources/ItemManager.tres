@@ -1,0 +1,9 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://bxysmk7d8ayxm"]
+
+[ext_resource type="Script" path="res://Resources/ItemManager.gd" id="1_6ejy4"]
+
+[resource]
+script = ExtResource("1_6ejy4")
+single_turret_count = 0
+double_turret_count = 0
+laser_gun_turret_count = 0

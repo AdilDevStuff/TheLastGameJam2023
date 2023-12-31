@@ -6,7 +6,5 @@ extends Area2D
 
 func _process(delta: float) -> void:
 	position += transform.x * speed * delta
-
-func _on_area_entered(area: Area2D) -> void:
-	if area.is_in_group("Enemy"):
-		area.health -= damage
+	if position.x > get_viewport_rect().size.x:
+		queue_free()
