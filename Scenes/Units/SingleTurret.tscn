@@ -12,6 +12,10 @@ radius = 32.3883
 [node name="SingleTurret" node_paths=PackedStringArray("muzzle") instance=ExtResource("1_x6qwa")]
 script = ExtResource("2_c2l4t")
 muzzle = NodePath("Barrel")
+health = 20.0
+damage = 20.0
+fire_rate = 1.0
+price = 20.0
 bullet_scene = ExtResource("3_y7kef")
 
 [node name="Sprite2D" parent="." index="0"]

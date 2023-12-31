@@ -10,6 +10,10 @@ radius = 32.3883
 
 [node name="DoubleTurret" instance=ExtResource("1_larht")]
 script = ExtResource("2_thkuu")
+health = 40.0
+damage = 20.0
+fire_rate = 1.0
+price = 40.0
 
 [node name="Sprite2D" parent="." index="0"]
 scale = Vector2(0.25, 0.25)
