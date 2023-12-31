@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://b3muj5sas7rg"]
+[gd_scene load_steps=15 format=3 uid="uid://b3muj5sas7rg"]
 
 [ext_resource type="Script" path="res://Scripts/BuildSystem.gd" id="1_r7wn2"]
 [ext_resource type="PackedScene" uid="uid://cc3ko47dckauj" path="res://Scenes/Units/SingleTurret.tscn" id="2_3a600"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://bgymnd70sl2xx" path="res://Assets/UserInterface/ItemButtons/SingleTurretButton.png" id="8_e3kpi"]
 [ext_resource type="Texture2D" uid="uid://dej8n32l0wgg1" path="res://Assets/UserInterface/ItemButtons/SingleTurretButtonHovered.png" id="9_xdw2j"]
 [ext_resource type="Texture2D" uid="uid://doquyojsatq4i" path="res://Assets/UserInterface/ItemButtons/DoubleTurretButtonHovered.png" id="10_y8vjm"]
+[ext_resource type="Texture2D" uid="uid://bdto5h5fia4n0" path="res://Assets/UserInterface/Icons/CoinIcon.png" id="11_0nwqs"]
 
 [sub_resource type="Animation" id="Animation_3e0d2"]
 resource_name = "Enter"
@@ -119,7 +120,7 @@ offset = Vector2(0, -65)
 
 [node name="UserInterface" type="CanvasLayer" parent="."]
 
-[node name="GameUI" type="Control" parent="UserInterface" node_paths=PackedStringArray("item_slot", "interface_anims")]
+[node name="GameUI" type="Control" parent="UserInterface" node_paths=PackedStringArray("item_slot", "interface_anims", "items_bar", "coinsLabel")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -129,9 +130,35 @@ grow_vertical = 2
 script = ExtResource("6_105vj")
 item_slot = NodePath("ItemsBar/MarginContainer/ItemSlots")
 interface_anims = NodePath("InterfaceAnims")
+items_bar = NodePath("ItemsBar")
+coinsLabel = NodePath("UserStats/HBoxContainer/CoinsLabel")
+
+[node name="UserStats" type="PanelContainer" parent="UserInterface/GameUI"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -288.0
+offset_top = 16.0
+offset_right = -16.0
+offset_bottom = 70.0
+grow_horizontal = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UserInterface/GameUI/UserStats"]
+layout_mode = 2
+
+[node name="CoinIcon" type="TextureRect" parent="UserInterface/GameUI/UserStats/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("11_0nwqs")
+expand_mode = 2
+
+[node name="CoinsLabel" type="Label" parent="UserInterface/GameUI/UserStats/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "2000"
 
 [node name="ItemsBar" type="PanelContainer" parent="UserInterface/GameUI"]
-custom_minimum_size = Vector2(0, 92)
+custom_minimum_size = Vector2(1152, 92)
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0

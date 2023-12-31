@@ -2,9 +2,24 @@
 
 [ext_resource type="Script" path="res://Scripts/UnitsBase.gd" id="1_vht0w"]
 
-[node name="UnitsBase" type="Area2D"]
+[node name="UnitsBase" type="Area2D" node_paths=PackedStringArray("raycast", "barrel")]
 script = ExtResource("1_vht0w")
+raycast = NodePath("Barrel/RayCast2D")
+barrel = NodePath("Barrel")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+[node name="Barrel" type="Node2D" parent="."]
+
+[node name="RayCast2D" type="RayCast2D" parent="Barrel"]
+position = Vector2(64, 0)
+target_position = Vector2(400, 0)
+collide_with_areas = true
+
+[node name="MuzzleSprite" type="Sprite2D" parent="Barrel"]
+use_parent_material = true
+rotation = 1.57079
+scale = Vector2(0.25, 0.25)
+offset = Vector2(0, -108.5)

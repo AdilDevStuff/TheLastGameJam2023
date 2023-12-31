@@ -2,36 +2,26 @@
 
 [ext_resource type="PackedScene" uid="uid://b5y177mviat22" path="res://Scenes/Units/UnitsBase.tscn" id="1_x6qwa"]
 [ext_resource type="Script" path="res://Scripts/SingleTurret.gd" id="2_c2l4t"]
-[ext_resource type="PackedScene" uid="uid://eli3glw6tkfy" path="res://Scenes/Bullets/SingleCanonShot.tscn" id="3_l8863"]
+[ext_resource type="PackedScene" uid="uid://eli3glw6tkfy" path="res://Scenes/Bullets/CanonShot.tscn" id="3_y7kef"]
 [ext_resource type="Texture2D" uid="uid://bdd8x25daw57a" path="res://Assets/PlayerUnits/Turret/TurretBase.png" id="4_ea8mx"]
 [ext_resource type="Texture2D" uid="uid://dv0bpa5n1qseu" path="res://Assets/PlayerUnits/Turret/SingleBarrel.png" id="5_0tsaj"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_of8du"]
-radius = 400.0
+[sub_resource type="CircleShape2D" id="CircleShape2D_fgjlf"]
+radius = 32.3883
 
 [node name="SingleTurret" node_paths=PackedStringArray("muzzle") instance=ExtResource("1_x6qwa")]
 script = ExtResource("2_c2l4t")
 muzzle = NodePath("Barrel")
-health = 5.0
-damage = 2.0
-fire_rate = 1.0
-bullet_scene = ExtResource("3_l8863")
+bullet_scene = ExtResource("3_y7kef")
 
 [node name="Sprite2D" parent="." index="0"]
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_ea8mx")
 
 [node name="CollisionShape2D" parent="." index="1"]
-shape = SubResource("CircleShape2D_of8du")
+shape = SubResource("CircleShape2D_fgjlf")
 
-[node name="Barrel" type="Node2D" parent="." index="2"]
-scale = Vector2(0.25, 0.25)
-
-[node name="BarrelSprite" type="Sprite2D" parent="Barrel" index="0"]
-use_parent_material = true
-position = Vector2(54, 0)
-rotation = 1.57079
+[node name="MuzzleSprite" parent="Barrel" index="1"]
 texture = ExtResource("5_0tsaj")
-offset = Vector2(0, -60)
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]

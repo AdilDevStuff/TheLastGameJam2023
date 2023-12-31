@@ -1,6 +1,7 @@
 extends Node
 
 var unit_idx: int = 0
+var coins: int = 5000
 
 var mouse_on_gui: bool = false
 var can_place_unit: bool = false

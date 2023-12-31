@@ -2,12 +2,18 @@ extends Control
 
 # < ---------- VARIABLES ---------- >
 
+@export_category("Items bar")
 @export var item_slot: HBoxContainer
 @export var interface_anims: AnimationPlayer
+@export var items_bar: PanelContainer
+
+@export_category("User Stats")
+@export var coinsLabel: Label
 
 # < ---------- FUNCTIONS ---------- >
 
 func _ready() -> void:
+	items_bar.size.x = get_viewport_rect().size.x
 	
 	for interface in self.get_children():
 		if interface is Control:
@@ -19,6 +25,9 @@ func _ready() -> void:
 	for button in buttons:
 		button.mouse_entered.connect(_on_mouse_entered)
 		button.mouse_exited.connect(_on_mouse_exited)
+
+func _process(delta: float) -> void:
+	coinsLabel.text = "%d" % Global.coins
 
 # < ---------- SIGNALS ---------- >
 

@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://ddbqce70dnhxp" path="res://Assets/PlayerUnits/Turret/DoubleBarrel.png" id="4_kwlg0"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ksn0m"]
-radius = 400.0
+radius = 32.3883
 
 [node name="DoubleTurret" instance=ExtResource("1_larht")]
 script = ExtResource("2_thkuu")
@@ -18,10 +18,8 @@ texture = ExtResource("3_iuctm")
 [node name="CollisionShape2D" parent="." index="1"]
 shape = SubResource("CircleShape2D_ksn0m")
 
-[node name="Muzzle" type="Node2D" parent="." index="2"]
-scale = Vector2(0.25, 0.25)
+[node name="RayCast2D" parent="Barrel" index="0"]
+target_position = Vector2(1000, 0)
 
-[node name="Muzzle" type="Sprite2D" parent="Muzzle" index="0"]
-rotation = 1.57079
+[node name="MuzzleSprite" parent="Barrel" index="1"]
 texture = ExtResource("4_kwlg0")
-offset = Vector2(0, -120)
