@@ -3,7 +3,6 @@ extends Area2D
 
 @export_category("Unit Stats")
 @export var health: float
-@export var damage: float
 @export var fire_rate: float
 @export var price: float
 
@@ -12,18 +11,16 @@ extends Area2D
 @export var raycast: RayCast2D
 @export var barrel: Node2D
 
-var can_shoot: bool = false
+var can_shoot: bool = true
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if is_ray_colliding():
-		print("Collided")
-	else:
-		print("Not Collided")
+		shoot(raycast.global_transform)
 
-func shoot(bullet_spawn_position: Vector2):
+func shoot(bullet_spawn_position):
 	if can_shoot:
 		var bullet_instance = bullet_scene.instantiate()
-		bullet_instance.position = bullet_spawn_position
+		bullet_instance.global_transform = bullet_spawn_position
 		get_parent().add_child(bullet_instance)
 		can_shoot = false
 		await get_tree().create_timer(fire_rate).timeout

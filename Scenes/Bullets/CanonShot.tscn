@@ -9,7 +9,7 @@ size = Vector2(28, 28)
 
 [node name="SingleCanonShot" instance=ExtResource("1_u31f7")]
 script = ExtResource("2_ooabr")
-speed = 20.0
+speed = 300.0
 
 [node name="Sprite2D" parent="." index="0"]
 scale = Vector2(0.21875, 0.21875)

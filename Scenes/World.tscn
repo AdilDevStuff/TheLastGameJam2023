@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://b3muj5sas7rg"]
+[gd_scene load_steps=16 format=3 uid="uid://b3muj5sas7rg"]
 
 [ext_resource type="Script" path="res://Scripts/BuildSystem.gd" id="1_r7wn2"]
 [ext_resource type="PackedScene" uid="uid://cc3ko47dckauj" path="res://Scenes/Units/SingleTurret.tscn" id="2_3a600"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://dej8n32l0wgg1" path="res://Assets/UserInterface/ItemButtons/SingleTurretButtonHovered.png" id="9_xdw2j"]
 [ext_resource type="Texture2D" uid="uid://doquyojsatq4i" path="res://Assets/UserInterface/ItemButtons/DoubleTurretButtonHovered.png" id="10_y8vjm"]
 [ext_resource type="Texture2D" uid="uid://bdto5h5fia4n0" path="res://Assets/UserInterface/Icons/CoinIcon.png" id="11_0nwqs"]
+[ext_resource type="PackedScene" uid="uid://dlboyugfysdoy" path="res://Scenes/Enemies/Enemy_SpaceshipSmall.tscn" id="12_ul50d"]
 
 [sub_resource type="Animation" id="Animation_3e0d2"]
 resource_name = "Enter"
@@ -165,7 +166,7 @@ anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_top = 660.0
-offset_right = 3456.0
+offset_right = 12672.0
 offset_bottom = 752.0
 grow_horizontal = 2
 grow_vertical = 0
@@ -214,6 +215,9 @@ libraries = {
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(723, 406)
 zoom = Vector2(0.8, 0.8)
+
+[node name="SmallSpaceship" parent="." instance=ExtResource("12_ul50d")]
+position = Vector2(1717, 279)
 
 [connection signal="pressed" from="UserInterface/GameUI/ItemsBar/MarginContainer/ItemSlots/SingleTurretBtn" to="BuildSystem" method="_on_item_btn_pressed" binds= [0]]
 [connection signal="pressed" from="UserInterface/GameUI/ItemsBar/MarginContainer/ItemSlots/DoubleTurretBtn" to="BuildSystem" method="_on_item_btn_pressed" binds= [1]]

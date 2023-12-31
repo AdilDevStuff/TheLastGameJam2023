@@ -26,7 +26,7 @@ func _ready() -> void:
 		button.mouse_entered.connect(_on_mouse_entered)
 		button.mouse_exited.connect(_on_mouse_exited)
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	coinsLabel.text = "%d" % Global.coins
 
 # < ---------- SIGNALS ---------- >
