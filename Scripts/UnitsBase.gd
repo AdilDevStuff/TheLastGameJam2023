@@ -1,6 +1,8 @@
 class_name Units
 extends Area2D
 
+# A base class for all player units
+
 @export_category("Unit Stats")
 @export var health: float
 @export var fire_rate: float

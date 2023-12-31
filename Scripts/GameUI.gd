@@ -15,12 +15,14 @@ extends Control
 func _ready() -> void:
 	items_bar.size.x = get_viewport_rect().size.x
 	
+	# Get all control nodes that are childrens of GameUI and connect mouse entered and exited signal
 	for interface in self.get_children():
 		if interface is Control:
 			interface.mouse_entered.connect(_on_mouse_entered)
 			interface.mouse_exited.connect(_on_mouse_exited)
 	
 	# Get all buttons from the ItemSlot HBoxContainer and connect mouse entered and exited signal
+	# Couldn't get buttons to work with upper for loop so had to do this again for buttons
 	var buttons = item_slot.get_children()
 	for button in buttons:
 		button.mouse_entered.connect(_on_mouse_entered)
@@ -39,6 +41,7 @@ func _on_build_mode_btn_toggled(toggled_on: bool) -> void:
 		Global.is_in_build_mode = false
 		interface_anims.play("Enter")
 
+# Signals for not letting user build when hovering over gui node
 func _on_mouse_entered():
 	Global.mouse_on_gui = true
 

@@ -1,6 +1,7 @@
 class_name Enemies
 extends Area2D
 
+@export_category("Enemy Stats")
 @export var move_speed: float
 @export var fire_rate: float
 @export var health: float

@@ -6,5 +6,7 @@ extends Area2D
 
 func _process(delta: float) -> void:
 	position += transform.x * speed * delta
+	
+	# Delete the bullet when offscreen
 	if position.x > get_viewport_rect().size.x:
 		queue_free()
