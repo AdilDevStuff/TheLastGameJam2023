@@ -23,7 +23,7 @@ func _process(_delta: float) -> void:
 	if Global.is_in_build_mode and !Global.mouse_on_gui:
 		if Input.is_action_just_pressed("Build") and Global.coins > 0:
 			spawn_obj(placeable_units[Global.unit_idx])
-		if Input.is_action_just_pressed("Remove"):
+		if Input.is_action_pressed("Remove"):
 			remove_obj()
 
 func spawn_obj(obj_to_spawn: PackedScene) -> void:
@@ -41,6 +41,7 @@ func spawn_obj(obj_to_spawn: PackedScene) -> void:
 func remove_obj():
 	for unit in get_spawned_units():
 		if unit.position == snap_to_grid(get_global_mouse_position()):
+			Global.coins += unit.price
 			unit.queue_free()
 
 func set_indicator_color():

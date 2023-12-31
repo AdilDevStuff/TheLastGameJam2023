@@ -9,9 +9,8 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_fgjlf"]
 radius = 32.3883
 
-[node name="SingleTurret" node_paths=PackedStringArray("muzzle") instance=ExtResource("1_x6qwa")]
+[node name="SingleTurret" instance=ExtResource("1_x6qwa")]
 script = ExtResource("2_c2l4t")
-muzzle = NodePath("Barrel")
 health = 20.0
 damage = 20.0
 fire_rate = 1.0
