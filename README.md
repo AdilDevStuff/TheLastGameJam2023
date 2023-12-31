@@ -9,7 +9,7 @@ The code in this one might not be good or efficient as im a noob making games as
 It just works! And the project is half cooked
 
 Enemies doesn't do anything other then go from A to B and die when player unit shoots bullet
-at them.
+at them. The major part of this one is the build system. I think its actually cool.
 
 You can use any part of this project in ur games....good luck making your games!
 Peace!
